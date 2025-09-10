@@ -3,9 +3,9 @@
 
 ### Funkcje Aplikacji:
 - **Rejestracja i logowanie,**
--Pobur danych z bazy danych,
--Filtrowanie listy po zakresie dat,
--Mailing(powiadomienia),
+- **Pobur danych z bazy danych,**
+- **Filtrowanie listy po zakresie dat,**
+- **Mailing(powiadomienia),**
 
 ### Technologia
 - **Język programowania:** C#
