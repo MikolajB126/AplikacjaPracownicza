@@ -1,5 +1,5 @@
 # AplikacjaPracownicza
-## Aplikacja ta ma pozwalac użytkownikowi zalogować się za pomocą hasła loginu i emaila oraz tworzyc liste zadań uporządkowana według daty i pobierać dane z bazy danych.
+## Aplikacja ta ma pozwalac użytkownikowi zalogować się za pomocą hasła loginu i emaila oraz tworzyc liste zadań uporządkowana według daty i pobierać dane użytkownika z bazy danych.
 
 ### Funkcje Aplikacji:
 - **Rejestracja i logowanie,**
