@@ -2,12 +2,12 @@
 ##Aplikacja ta ma pozwalac użytkownikowi zalogować się za pomocą hasła loginu i emaila oraz tworzyc liste zadań uporządkowana według daty i pobierać dane z bazy danych.
 
 ###Funkcje Aplikacji:
-- **Rejestracja i logowanie,**
--Pobur danych z bazy danych,
--Filtrowanie listy po zakresie dat,
--Mailing(powiadomienia),
+-**Rejestracja i logowanie,**
+-**Pobur danych z bazy danych,**
+-**Filtrowanie listy po zakresie dat,**
+-**Mailing(powiadomienia),**
 
 ###Technologia
--Język programowania: C#
--Środowisko programistyczne: Visual Studio 2022
+-**Język programowania**: C#
+-**Środowisko programistyczne**: Visual Studio 2022
 
