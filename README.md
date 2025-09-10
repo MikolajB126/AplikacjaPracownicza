@@ -5,7 +5,7 @@
 - **Rejestracja i logowanie,**
 - **Pobur danych z bazy danych,**
 - **Filtrowanie listy po zakresie dat,**
-- **Mailing(powiadomienia),**
+- **Mailing(przypomnienia),**
 
 ### Technologia
 - **Język programowania:** C#
