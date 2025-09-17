@@ -1,28 +1,51 @@
-package com.example.kalkulatorv2;
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#6DE3F2"
+    android:orientation="vertical"
+    android:padding="8dp">
 
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.GridLayout;
-import android.widget.TextView;
+    <TextView
+        android:id="@+id/screen"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#6DE3F2"
+        android:gravity="end|bottom"
+        android:padding="16dp"
+        android:textSize="32sp"
+        android:textColor="#000" />
 
-public class MainActivity extends AppCompatActivity {
+    <GridLayout
+        android:id="@+id/buttonGrid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="4"
+        android:rowCount="4"
+        android:layout_marginTop="16dp">
 
-    TextView screen;
-    String currentInput = "";
-    double firstNumber = 0;
-    Operation currentOperation = Operation.NONE;
+        <Button android:text="1" style="@style/CalcButton"/>
+        <Button android:text="2" style="@style/CalcButton"/>
+        <Button android:text="3" style="@style/CalcButton"/>
+        <Button android:text="CE" style="@style/CalcButton"/>
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        screen = findViewById(R.id.screen);
+        <Button android:text="4" style="@style/CalcButton"/>
+        <Button android:text="5" style="@style/CalcButton"/>
+        <Button android:text="6" style="@style/CalcButton"/>
+        <Button android:text="C" style="@style/CalcButton"/>
 
-        GridLayout grid = findViewById(R.id.buttonGrid); // Twój GridLayout w XML
+        <Button android:text="7" style="@style/CalcButton"/>
+        <Button android:text="8" style="@style/CalcButton"/>
+        <Button android:text="9" style="@style/CalcButton"/>
+        <Button android:text="+" style="@style/CalcButton"/>
 
+        <Button android:text="." style="@style/CalcButton"/>
+        <Button android:text="0" style="@style/CalcButton"/>
+        <Button android:text="=" style="@style/CalcButton"/>
+        <Button android:text="-" style="@style/CalcButton"/>
+
+    </GridLayout>
+</LinearLayout>
         for (int i = 0; i < grid.getChildCount(); i++) {
             View child = grid.getChildAt(i);
             if (child instanceof Button) {
