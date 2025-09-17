@@ -1,73 +1,32 @@
-using System.Collections.Generic;
-using System.Windows;
+<Window x:Class="AplikacjaMailowa.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Logowanie" Height="300" Width="400" WindowStartupLocation="CenterScreen">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-namespace AplikacjaMailowa
-{
-    public class User
-    {
-        public string Password { get; set; }
-        public string Email { get; set; }
-        public User(string password, string email)
-        {
-            Password = password;
-            Email = email;
-        }
-    }
+        <Label Grid.Row="0" Grid.Column="0" Content="Login:" VerticalAlignment="Center" Margin="0,5"/>
+        <TextBox x:Name="UsernameBox" Grid.Row="0" Grid.Column="1" Width="200" Margin="5"/>
 
-    public partial class LoginWindow : Window
-    {
-        public static Dictionary<string, User> Users = new Dictionary<string, User>();
-        public static string CurrentUserEmail { get; set; }
+        <Label Grid.Row="1" Grid.Column="0" Content="Hasło:" VerticalAlignment="Center" Margin="0,5"/>
+        <PasswordBox x:Name="PasswordBox" Grid.Row="1" Grid.Column="1" Width="200" Margin="5"/>
 
-        static LoginWindow()
-        {
-            Users["admin"] = new User("1234", "admin@example.com");
-        }
+        <Label Grid.Row="2" Grid.Column="0" Content="Email:" VerticalAlignment="Center" Margin="0,5"/>
+        <TextBox x:Name="EmailBox" Grid.Row="2" Grid.Column="1" Width="200" Margin="5"/>
 
-        public LoginWindow()
-        {
-            InitializeComponent();
-        }
-
-        private void Login_Click(object sender, RoutedEventArgs e)
-        {
-            string username = UsernameBox.Text;
-            string password = PasswordBox.Password;
-
-            if (Users.TryGetValue(username, out var user) && user.Password == password)
-            {
-                CurrentUserEmail = user.Email;
-                MainWindow main = new MainWindow();
-                main.Show();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Błędny login lub hasło");
-            }
-        }
-
-        private void Register_Click(object sender, RoutedEventArgs e)
-        {
-            string username = UsernameBox.Text;
-            string password = PasswordBox.Password;
-            string email = EmailBox.Text;
-
-            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(email))
-            {
-                MessageBox.Show("Wypełnij wszystkie pola");
-                return;
-            }
-
-            if (!Users.ContainsKey(username))
-            {
-                Users[username] = new User(password, email);
-                MessageBox.Show("Rejestracja zakończona sukcesem");
-            }
-            else
-            {
-                MessageBox.Show("Użytkownik już istnieje");
-            }
-        }
-    }
-}
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10">
+            <Button Content="Loguj" Width="100" Margin="10,0" Click="Login_Click"/>
+            <Button Content="Rejestruj" Width="100" Margin="10,0" Click="Register_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
