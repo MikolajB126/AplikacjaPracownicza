@@ -1,4 +1,4 @@
-zamiast 255 i tego kwadratu zrob jeden kwadrat pod pobierz ktory zmienia sie dynamicznie wartosci 3 liczb i kolor background:
+
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
@@ -16,10 +16,9 @@ zamiast 255 i tego kwadratu zrob jeden kwadrat pod pobierz ktory zmienia sie dyn
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/instruction"
+        android:text="Wybierz kolor"
         android:textSize="16sp"
         android:layout_marginTop="16dp"/>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,7 +29,7 @@ zamiast 255 i tego kwadratu zrob jeden kwadrat pod pobierz ktory zmienia sie dyn
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/label_r"
+            android:text="R"
             android:layout_marginEnd="8dp"/>
 
         <SeekBar
@@ -49,7 +48,6 @@ zamiast 255 i tego kwadratu zrob jeden kwadrat pod pobierz ktory zmienia sie dyn
             android:layout_marginStart="8dp"/>
     </LinearLayout>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -59,7 +57,7 @@ zamiast 255 i tego kwadratu zrob jeden kwadrat pod pobierz ktory zmienia sie dyn
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/label_g"
+            android:text="G"
             android:layout_marginEnd="8dp"/>
 
         <SeekBar
@@ -78,7 +76,6 @@ zamiast 255 i tego kwadratu zrob jeden kwadrat pod pobierz ktory zmienia sie dyn
             android:layout_marginStart="8dp"/>
     </LinearLayout>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -88,7 +85,7 @@ zamiast 255 i tego kwadratu zrob jeden kwadrat pod pobierz ktory zmienia sie dyn
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/label_b"
+            android:text="B"
             android:layout_marginEnd="8dp"/>
 
         <SeekBar
@@ -107,7 +104,6 @@ zamiast 255 i tego kwadratu zrob jeden kwadrat pod pobierz ktory zmienia sie dyn
             android:layout_marginStart="8dp"/>
     </LinearLayout>
 
-
     <Button
         android:id="@+id/buttonPick"
         android:layout_width="wrap_content"
@@ -115,15 +111,15 @@ zamiast 255 i tego kwadratu zrob jeden kwadrat pod pobierz ktory zmienia sie dyn
         android:layout_marginTop="16dp"
         android:layout_gravity="center_horizontal"
         android:backgroundTint="#CD853F"
-        android:text="@string/button_pick"
+        android:text="Pobierz"
         android:textColor="#FFFFFF" />
 
     <View
         android:id="@+id/colorPicked"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#FFFFFF"
-        android:layout_marginTop="16dp"/>
+        android:layout_height="120dp"
+        android:layout_marginTop="16dp"
+        android:background="#FFFFFF" />
 
     <TextView
         android:id="@+id/textColorRGB"
@@ -131,4 +127,5 @@ zamiast 255 i tego kwadratu zrob jeden kwadrat pod pobierz ktory zmienia sie dyn
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="255, 255, 255" />
+
 </LinearLayout>
