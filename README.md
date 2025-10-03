@@ -6,12 +6,18 @@
     android:background="#FFF8DC"
     android:padding="16dp">
 
+    <View
+        android:id="@+id/colorPreview"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="#FFFFFF" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dobierz kolor suwakami:" 
+        android:text="Dobierz kolor suwakami i zapisz przyciskiem:"
         android:textSize="16sp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginTop="16dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,13 +36,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:max="255"/>
+            android:max="255"
+            android:progress="255"/>
 
         <TextView
             android:id="@+id/valueR"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
+            android:text="255"
             android:layout_marginStart="8dp"/>
     </LinearLayout>
 
@@ -57,13 +64,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:max="255"/>
+            android:max="255"
+            android:progress="255"/>
 
         <TextView
             android:id="@+id/valueG"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
+            android:text="255"
             android:layout_marginStart="8dp"/>
     </LinearLayout>
 
@@ -84,27 +92,44 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:max="255"/>
+            android:max="255"
+            android:progress="255"/>
 
         <TextView
             android:id="@+id/valueB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
+            android:text="255"
             android:layout_marginStart="8dp"/>
     </LinearLayout>
 
-    <View
-        android:id="@+id/colorPicked"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="#000000"
-        android:layout_marginTop="24dp"/>
-
-    <TextView
-        android:id="@+id/textColorRGB"
+    <Button
+        android:id="@+id/buttonPick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0, 0, 0"
-        android:layout_marginTop="8dp"/>
+        android:text="Pobierz"
+        android:background="#CD853F"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical">
+
+        <View
+            android:id="@+id/colorPicked"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"/>
+
+        <TextView
+            android:id="@+id/textColorRGB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="255, 255, 255"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
 </LinearLayout>
