@@ -1,4 +1,3 @@
-colorPicked - ma sie w nim znajdowac te wartosci co uzytkownik wybiera na suwakach oraz backgraound ma cie do tego zmieniach i bez tego 225 tylko w tym color picked to:
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
@@ -7,19 +6,12 @@ colorPicked - ma sie w nim znajdowac te wartosci co uzytkownik wybiera na suwaka
     android:background="#FFF8DC"
     android:padding="16dp">
 
-    <View
-        android:id="@+id/colorPreview"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="#FFFFFF" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/instruction"
+        android:text="Dobierz kolor suwakami:" 
         android:textSize="16sp"
-        android:layout_marginTop="16dp"/>
-
+        android:layout_marginBottom="16dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,7 +22,7 @@ colorPicked - ma sie w nim znajdowac te wartosci co uzytkownik wybiera na suwaka
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/label_r"
+            android:text="R"
             android:layout_marginEnd="8dp"/>
 
         <SeekBar
@@ -38,17 +30,15 @@ colorPicked - ma sie w nim znajdowac te wartosci co uzytkownik wybiera na suwaka
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:max="255"
-            android:progress="255"/>
+            android:max="255"/>
 
         <TextView
             android:id="@+id/valueR"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="255"
+            android:text="0"
             android:layout_marginStart="8dp"/>
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -59,7 +49,7 @@ colorPicked - ma sie w nim znajdowac te wartosci co uzytkownik wybiera na suwaka
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/label_g"
+            android:text="G"
             android:layout_marginEnd="8dp"/>
 
         <SeekBar
@@ -67,17 +57,15 @@ colorPicked - ma sie w nim znajdowac te wartosci co uzytkownik wybiera na suwaka
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:max="255"
-            android:progress="255"/>
+            android:max="255"/>
 
         <TextView
             android:id="@+id/valueG"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="255"
+            android:text="0"
             android:layout_marginStart="8dp"/>
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -88,7 +76,7 @@ colorPicked - ma sie w nim znajdowac te wartosci co uzytkownik wybiera na suwaka
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/label_b"
+            android:text="B"
             android:layout_marginEnd="8dp"/>
 
         <SeekBar
@@ -96,39 +84,27 @@ colorPicked - ma sie w nim znajdowac te wartosci co uzytkownik wybiera na suwaka
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:max="255"
-            android:progress="255"/>
+            android:max="255"/>
 
         <TextView
             android:id="@+id/valueB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="255"
+            android:text="0"
             android:layout_marginStart="8dp"/>
     </LinearLayout>
-
-
-    <Button
-        android:id="@+id/buttonPick"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="#CD853F"
-        android:text="@string/button_pick"
-        android:textColor="#FFFFFF" />
 
     <View
         android:id="@+id/colorPicked"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#FFFFFF"
-        android:layout_marginTop="16dp"/>
+        android:layout_height="100dp"
+        android:background="#000000"
+        android:layout_marginTop="24dp"/>
 
     <TextView
         android:id="@+id/textColorRGB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="255, 255, 255" />
+        android:text="0, 0, 0"
+        android:layout_marginTop="8dp"/>
 </LinearLayout>
