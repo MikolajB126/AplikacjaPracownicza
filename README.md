@@ -1,111 +1,128 @@
-package com.example.kalkulatorv2;
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF8DC"
+    android:padding="16dp">
 
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.GridLayout;
-import android.widget.TextView;
+    <View
+        android:id="@+id/colorPreview"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="#FFFFFF" />
 
-public class MainActivity extends AppCompatActivity {
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dobierz kolor suwakami i zapisz przyciskiem:"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"/>
 
-    TextView screen;
-    String currentInput = "";
-    double firstNumber = 0;
-    Operation currentOperation = Operation.NONE;
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        screen = findViewById(R.id.screen);
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="R"
+            android:layout_marginEnd="8dp"/>
 
-        GridLayout grid = findViewById(R.id.buttonGrid);
+        <SeekBar
+            android:id="@+id/seekR"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="255"
+            android:progress="255"/>
 
-        for (int i = 0; i < grid.getChildCount(); i++) {
-            View child = grid.getChildAt(i);
-            if (child instanceof Button) {
-                child.setOnClickListener(this::onButtonClick);
-            }
-        }
-    }
+        <TextView
+            android:id="@+id/valueR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="255"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
 
-    private void onButtonClick(View v) {
-        Button btn = (Button) v;
-        String text = btn.getText().toString();
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
 
-        switch (text) {
-            case "C":
-                if (!currentInput.isEmpty()) {
-                    currentInput = currentInput.substring(0, currentInput.length() - 1);
-                    screen.setText(currentInput);
-                }
-                break;
-            case "CE":
-                currentInput = "";
-                firstNumber = 0;
-                currentOperation = Operation.NONE;
-                screen.setText("");
-                break;
-            case "+":
-                setOperation(Operation.ADD);
-                break;
-            case "-":
-                setOperation(Operation.SUBTRACT);
-                break;
-            case "*":
-                setOperation(Operation.MULTIPLY);
-                break;
-            case "/":
-                setOperation(Operation.DIVIDE);
-                break;
-            case "=":
-                calculate();
-                break;
-            default:
-                currentInput += text;
-                screen.setText(currentInput);
-        }
-    }
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="G"
+            android:layout_marginEnd="8dp"/>
 
-    private void setOperation(Operation op) {
-        if (!currentInput.isEmpty()) {
-            if (currentOperation != Operation.NONE) {
-                calculate();
-            } else {
-                firstNumber = Double.parseDouble(currentInput);
-            }
-            currentOperation = op;
-            currentInput = "";
-        } else if (currentOperation != Operation.NONE) {
-            currentOperation = op;
-        }
-    }
+        <SeekBar
+            android:id="@+id/seekG"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="255"
+            android:progress="255"/>
 
-    private void calculate() {
-        if (currentInput.isEmpty() || currentOperation == Operation.NONE) return;
+        <TextView
+            android:id="@+id/valueG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="255"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
 
-        double secondNumber = Double.parseDouble(currentInput);
-        double result = 0;
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
 
-        switch (currentOperation) {
-            case ADD: result = firstNumber + secondNumber; break;
-            case SUBTRACT: result = firstNumber - secondNumber; break;
-            case MULTIPLY: result = firstNumber * secondNumber; break;
-            case DIVIDE:
-                if (secondNumber == 0) { screen.setText("Error"); return; }
-                result = firstNumber / secondNumber; break;
-            default: break;
-        }
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="B"
+            android:layout_marginEnd="8dp"/>
 
-        if (result == (long) result) {
-            currentInput = String.valueOf((long) result);
-        } else {
-            currentInput = String.valueOf(result);
-        }
+        <SeekBar
+            android:id="@+id/seekB"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="255"
+            android:progress="255"/>
 
-        screen.setText(currentInput);
-        firstNumber = result;
-        currentOperation = Operation.NONE;
-    }
-}
+        <TextView
+            android:id="@+id/valueB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="255"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonPick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pobierz"
+        android:background="#CD853F"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="16dp"/>
+
+    <View
+        android:id="@+id/colorPicked"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#FFFFFF"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/textColorRGB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="255, 255, 255"
+        android:layout_marginTop="8dp"/>
+</LinearLayout>
