@@ -1,3 +1,4 @@
+zamiast 255 i tego kwadratu zrob jeden kwadrat pod pobierz ktory zmienia sie dynamicznie wartosci 3 liczb i kolor background:
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
@@ -15,9 +16,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dobierz kolor suwakami i zapisz przyciskiem:"
+        android:text="@string/instruction"
         android:textSize="16sp"
         android:layout_marginTop="16dp"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,7 +30,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="R"
+            android:text="@string/label_r"
             android:layout_marginEnd="8dp"/>
 
         <SeekBar
@@ -47,6 +49,7 @@
             android:layout_marginStart="8dp"/>
     </LinearLayout>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -56,7 +59,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="G"
+            android:text="@string/label_g"
             android:layout_marginEnd="8dp"/>
 
         <SeekBar
@@ -75,6 +78,7 @@
             android:layout_marginStart="8dp"/>
     </LinearLayout>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -84,7 +88,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="B"
+            android:text="@string/label_b"
             android:layout_marginEnd="8dp"/>
 
         <SeekBar
@@ -103,33 +107,28 @@
             android:layout_marginStart="8dp"/>
     </LinearLayout>
 
+
     <Button
         android:id="@+id/buttonPick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pobierz"
-        android:background="#CD853F"
-        android:textColor="#FFFFFF"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="#CD853F"
+        android:text="@string/button_pick"
+        android:textColor="#FFFFFF" />
 
-    <LinearLayout
+    <View
+        android:id="@+id/colorPicked"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="16dp"
-        android:gravity="center_vertical">
+        android:background="#FFFFFF"
+        android:layout_marginTop="16dp"/>
 
-        <View
-            android:id="@+id/colorPicked"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:background="#FFFFFF"/>
-
-        <TextView
-            android:id="@+id/textColorRGB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="255, 255, 255"
-            android:layout_marginStart="16dp"/>
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textColorRGB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="255, 255, 255" />
 </LinearLayout>
