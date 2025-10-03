@@ -1,131 +1,68 @@
+package com.example.colorpicker;
 
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFF8DC"
-    android:padding="16dp">
+import android.graphics.Color;
+import android.os.Bundle;
+import android.widget.SeekBar;
+import android.widget.TextView;
+import android.view.View;
+import android.widget.Button;
+import androidx.appcompat.app.AppCompatActivity;
 
-    <View
-        android:id="@+id/colorPreview"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="#FFFFFF" />
+public class MainActivity extends AppCompatActivity {
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Wybierz kolor"
-        android:textSize="16sp"
-        android:layout_marginTop="16dp"/>
+    private SeekBar seekR, seekG, seekB;
+    private TextView valueR, valueG, valueB, textColorRGB;
+    private View colorPicked;
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="R"
-            android:layout_marginEnd="8dp"/>
+        seekR = findViewById(R.id.seekR);
+        seekG = findViewById(R.id.seekG);
+        seekB = findViewById(R.id.seekB);
 
-        <SeekBar
-            android:id="@+id/seekR"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:max="255"
-            android:progress="255"/>
+        valueR = findViewById(R.id.valueR);
+        valueG = findViewById(R.id.valueG);
+        valueB = findViewById(R.id.valueB);
+        textColorRGB = findViewById(R.id.textColorRGB);
 
-        <TextView
-            android:id="@+id/valueR"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="255"
-            android:layout_marginStart="8dp"/>
-    </LinearLayout>
+        colorPicked = findViewById(R.id.colorPicked);
+        Button buttonPick = findViewById(R.id.buttonPick);
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
+        SeekBar.OnSeekBarChangeListener colorChangeListener = new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                updateColor();
+            }
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="G"
-            android:layout_marginEnd="8dp"/>
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) { }
 
-        <SeekBar
-            android:id="@+id/seekG"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:max="255"
-            android:progress="255"/>
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) { }
+        };
 
-        <TextView
-            android:id="@+id/valueG"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="255"
-            android:layout_marginStart="8dp"/>
-    </LinearLayout>
+        seekR.setOnSeekBarChangeListener(colorChangeListener);
+        seekG.setOnSeekBarChangeListener(colorChangeListener);
+        seekB.setOnSeekBarChangeListener(colorChangeListener);
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
+        buttonPick.setOnClickListener(v -> {});
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="B"
-            android:layout_marginEnd="8dp"/>
+        updateColor();
+    }
 
-        <SeekBar
-            android:id="@+id/seekB"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:max="255"
-            android:progress="255"/>
+    private void updateColor() {
+        int r = seekR.getProgress();
+        int g = seekG.getProgress();
+        int b = seekB.getProgress();
 
-        <TextView
-            android:id="@+id/valueB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="255"
-            android:layout_marginStart="8dp"/>
-    </LinearLayout>
+        colorPicked.setBackgroundColor(Color.rgb(r, g, b));
+        textColorRGB.setText(r + ", " + g + ", " + b);
 
-    <Button
-        android:id="@+id/buttonPick"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="#CD853F"
-        android:text="Pobierz"
-        android:textColor="#FFFFFF" />
-
-    <View
-        android:id="@+id/colorPicked"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_marginTop="16dp"
-        android:background="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/textColorRGB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="255, 255, 255" />
-
-</LinearLayout>
+        valueR.setText(String.valueOf(r));
+        valueG.setText(String.valueOf(g));
+        valueB.setText(String.valueOf(b));
+    }
+}
